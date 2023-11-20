@@ -1,0 +1,18 @@
+TASKS
+=====
+
+1-I had to comment code in skb.cpp in skbLookup. Check if this is a problem in the way we determine if a connection already exists. Do we need this code? Is there any other part where we may find the same problem?
+
+2-Check how we decide that a skb is valid or not? I had to comment code in packetSniffer.cpp in line 348:
+    if (!IS_SKB_STATE_KILLED(usrSkbfound) && IS_SKB_STATE_VALID(usrSkbfound))
+
+3-Define what should be the query we want to apply to pcap capture
+
+4-Check the if commented out in packetSniffer.cpp:119, function mainAgentThread:
+
+   if (msgLen > (MIN_TCP_SIZE - 1) && msgBuf[buf_idx].msg[12] == 0x08 && msgBuf[buf_idx].msg[13] == 0 && msgBuf[buf_idx].msg[23] == 6 && msgBuf[buf_idx].msg[36] == 0 && msgBuf[buf_idx].msg[37] == 0x50)
+
+
+Do we need it? Do we need a different checking? Can our code be hacked in this way with a bad packet?
+
+
