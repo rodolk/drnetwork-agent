@@ -7,7 +7,7 @@ DrNetwork agent has this knowledge embedded as heuristics.
 
 This is WIP and might not be easy to build at the beginning, but I'll slowly make it easier :)
 
-So far, I tested DLLTAgent running in AWS images and Ubuntu distributions 20.04 and 22.04. 
+So far, DLLTAgent was tested running in AWS images and Ubuntu distributions 20.04 and 22.04. 
 
 It can work with EKS and Cilium.
 
@@ -29,7 +29,7 @@ The code has some dependencies:
 - libpthread.so
 
 ### REST plugin
-The REST plugin is **libdlltrestconnector.so** and it is built in folder **plugins**:
+The REST plugin is **libdlltrestconnector.so** and it is built in folder **build/plugins**:
 It has dependencies on:
 
 - libbcurl.so
@@ -60,8 +60,25 @@ $(KERNEL_ROOT)/tools/lib/bpf
 Define **KERNEL_ROOT** in **build/ebpf/Makefile**. Change the current value before building.
 
 
+## Building and running unit test
+
+This is done in **unittest** folder.
+The unit test uses google test framework.
+
+Run `make` to build everything for unit test. This is going to build also the objects in dlltagent.
+Run `make test` for running the unit test.
+
+Dependencies:
+
+- libgtest.so: Makefile extects to find it in **/opt/googletest/build/lib**
+- libgtest_main.so: Makefile extects to find it in **/opt/googletest/build/lib**
+- libpthread.so
+- libdl.so
+- libsystem.so
 
 
+
+## Author
 
 rodolk
 
