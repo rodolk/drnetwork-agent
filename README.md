@@ -50,7 +50,7 @@ We are going to use only the kernel module in that repository.
 
 Note this dynamic library requires:
 
-- libbpf.so: it expects to find it in $(KERNEL_ROOT)/tools/lib/bpf and you'll need to install this library in the same directory as libdlltebpf.so is found.
+- libbpf.so: it expects to find it in $(KERNEL_ROOT)/tools/lib/bpf and, for execution, you'll need to install this library in the same directory as libdlltebpf.so is found.
 - libelf.so
 - libz.so
 
